@@ -1,6 +1,18 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
 
-<%= link_to 'Articles listing', articles_path %>
+<main class="welcome container-md py-md-5 px-0 flex-shrink-0">
+  <div class="jumbotron mb-4 text-white bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 welcome__text bg-dark">
+          <h1 class="display-4 fst-italic">Hello World</h1>
+          <p class="lead my-3">Welcome to this website, built with rails 7.</p>
+          <p class="small">Created as part of the rails course by Mashrur Hossain.</p>
+          <div class="welcome__actions">
+            <%= link_to 'Sign up!', '#', role: 'button', class: 'btn btn-success btn-md' %>
+          </div>
+        </div>
+        <div class="col-12 p-0 col-md-6 welcome__image"></div>
+      </div>
+    </div>
+  </div>
+</main>

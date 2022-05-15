@@ -1,1 +1,54 @@
 @import 'bootstrap';
+
+
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  background-color: black !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.4em;
+  color: #fff;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.welcome {
+  .jumbotron {
+    .row {
+      flex-direction: column-reverse;
+    }
+    
+    @media (min-width: 768px) {
+      .row {
+        height: 400px;
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: column;
+      padding-right: 4rem;
+      padding-left: 4rem;
+    }
+  }
+
+  &__image {
+    background-image: asset-url('welcome.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 70%;
+    min-height: 200px;
+  }
+}
