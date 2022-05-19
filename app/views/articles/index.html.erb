@@ -8,7 +8,9 @@
   <div class="article__grid">
     <% @articles.each do |article| %>
     <div class="article__card card mb-5 text-center shadow">
-      <header class="article__header card-header fst-italic">By Lenxnos</header>
+      <header class="article__header card-header fst-italic">
+        by <%= article.user.username %>
+      </header>
       <div class="article__body card-body px-4">
         <h5 class="article__title card-title">
           <%= article.title %>
