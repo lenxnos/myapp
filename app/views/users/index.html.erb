@@ -1,6 +1,10 @@
 <section class="container">
   <h1 class="text-center mt-4">MyApp bloggers</h1>
   
+  <div class="flickr_pagination mb-3">
+    <%= will_paginate @users, :container => false %>
+  </div>
+
   <div class="container-form mb-4">
     <div class="user">
       <% @users.each do |user| %>
@@ -29,5 +33,9 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="flickr_pagination mb-3">
+    <%= will_paginate @users, :container => false %>
   </div>
 </section>
