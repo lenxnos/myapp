@@ -10,6 +10,7 @@
       <div class="article__card card mb-5 text-center shadow">
         <header class="article__header card-header fst-italic">
           by <%= @article.user.username %>
+          <%= link_to gravatar_for(@article.user, size: 50), user_path(@article.user) %>
         </header>
         <div class="article__body card-body px-4">
           <div class="text-start article__description card-description">
