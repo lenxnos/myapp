@@ -1,0 +1,36 @@
+<section>
+  <h1 class="text-center mt-4">Log in</h1>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-7">
+        <div class="card shadow rounded bg-light">
+          <div class="card-body">
+            <%= form_with(scope: :session, url: login_path,  local: true, data: { turbo: false })  do |f| %>
+              <div class="mb-3 row">
+                <%= f.label :email, class: "col-sm-3 col-lg-2 col-form-label" %>
+                <div class="col-sm-9 col-lg-10">
+                  <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <%= f.label :password, class: "col-sm-3 col-lg-2 col-form-label" %>
+                <div class="col-sm-9 col-lg-10">
+                  <%= f.password_field :password, class: "form-control", placeholder: "Enter you password" %>
+                </div>
+              </div>
+
+              
+              <div class="row justify-content-center">
+                <div class="col text-center">
+                  <%= f.submit "Login", class: "btn btn-success" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
