@@ -1,0 +1,33 @@
+<section class="container">
+  <h1 class="text-center mt-4">MyApp bloggers</h1>
+  
+  <div class="container-form mb-4">
+    <div class="user">
+      <% @users.each do |user| %>
+        <div class="user__card card mb-5 text-center shadow">
+          <header class="user__header card-header">
+             <%= link_to user.username, user, class: 'user__link' %>
+          </header>
+
+          <div class="user__body card-body px-4">
+            <div class="user__avatar">
+              <%= gravatar_for user, size: 200 %>
+            </div>
+
+            <div class="user__info">
+              <p><%= pluralize(user.articles.count, "article") %></p>
+            </div>
+
+            <%= link_to "View profile", user, class: 'btn btn-success user__link' %>
+            <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-dark user__link' %>
+          </div>
+          <footer class="card-footer user__footer text-muted">
+            <small>
+              Joined <%= time_ago_in_words(user.created_at) %> ago
+            </small>
+          </footer>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
