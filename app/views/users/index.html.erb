@@ -23,8 +23,14 @@
             </div>
 
             <%= link_to "View profile", user, class: 'btn btn-success user__link' %>
-            <% if logged_in? && user === current_user %>
-              <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-dark user__link' %>
+            <% if logged_in? %>
+              <% if user === current_user %>
+                <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-dark user__link' %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to 'Delete user', user_path(user), class: "btn btn-danger user__link",
+                data: { "turbo-method": :delete, "turbo-confirm": "Are you sure you want to delete the user account and all associated articles?" } %>
+              <% end %>
             <% end %>
           </div>
           <footer class="card-footer user__footer text-muted">

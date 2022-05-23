@@ -16,7 +16,7 @@
           <div class="text-start article__description card-description">
             <%= simple_format(@article.description) %>
           </div>
-          <% if logged_in? && @article.user === current_user %>
+          <% if logged_in? && (@article.user === current_user || current_user.admin?) %>
             <div>
               <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-dark article__link' %>
               <%= link_to "Destroy", article_path(@article), class: 'btn btn-danger article__link', data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?" } %>
