@@ -28,6 +28,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to 'View your profile', user_path(current_user), class: "dropdown-item #{ 'active' if current_page?(user_path(current_user)) }", "data-current" => "page" %></li>
               <li><%= link_to 'Edit your profile', edit_user_path(current_user), class: "dropdown-item #{ 'active' if current_page?(edit_user_path(current_user)) }", "data-current" => "page" %></li>
+              <li><%= link_to 'Delete profile', user_path(current_user), class: "dropdown-item text-danger", data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?" } %></li>
             </ul>
           </li>
           <li class="nav-item">
