@@ -14,13 +14,21 @@
             Articles
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to 'Create new article', new_article_path, class: "dropdown-item #{ 'active' if current_page?(new_article_path) }", "data-current" => "page" %></li>
+            <% if logged_in? %>
+              <li><%= link_to 'Create new article', new_article_path, class: "dropdown-item #{ 'active' if current_page?(new_article_path) }", "data-current" => "page" %></li>
+            <% end %>
             <li><%= link_to 'View articles', articles_path, class: "dropdown-item #{ 'active' if current_page?(articles_path) }", "data-current" => "page" %></li>
           </ul>
         </li>
         <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: 'nav-link' %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile [<%= current_user.username %>]
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to 'View your profile', user_path(current_user), class: "dropdown-item #{ 'active' if current_page?(user_path(current_user)) }", "data-current" => "page" %></li>
+              <li><%= link_to 'Edit your profile', edit_user_path(current_user), class: "dropdown-item #{ 'active' if current_page?(edit_user_path(current_user)) }", "data-current" => "page" %></li>
+            </ul>
           </li>
           <li class="nav-item">
             <%= link_to 'Logout', logout_path, class: 'nav-link', data: { "turbo_method": :delete } %>

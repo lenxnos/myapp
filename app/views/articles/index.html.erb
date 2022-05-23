@@ -1,9 +1,6 @@
 <div class="article container">
   <h1 class="text-center mt-5">Listing all articles</h1>
 
-  <div class="text-end mb-3">
-    <%= link_to 'Create new article', new_article_path, class: 'btn btn-primary' %>
-  </div>
   <div class="flickr_pagination mb-3">
     <%= will_paginate @articles, :container => false %>
   </div>
