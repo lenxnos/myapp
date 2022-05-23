@@ -23,7 +23,9 @@
             </div>
 
             <%= link_to "View profile", user, class: 'btn btn-success user__link' %>
-            <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-dark user__link' %>
+            <% if logged_in? && user === current_user %>
+              <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-dark user__link' %>
+            <% end %>
           </div>
           <footer class="card-footer user__footer text-muted">
             <small>
