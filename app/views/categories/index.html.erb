@@ -7,12 +7,13 @@
 
   <div class="row">
     <% @categories.each do |category| %>
-      <div class="col-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="category__card card mb-5 text-center shadow">
           <div class="category__body card-body px-4">
             <h5 class="category__title card-title">
               <%= link_to category.name, category_path(category), class: 'category__link' %>
             </h5>
+            <p class="card-text"><%= pluralize(category.articles.count, "article") %></p>
           </div>
           <footer class="card-footer category__footer text-muted">
             <small>
