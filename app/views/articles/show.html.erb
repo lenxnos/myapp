@@ -11,6 +11,11 @@
         <header class="article__header card-header fst-italic">
           by <%= @article.user.username %>
           <%= link_to gravatar_for(@article.user, size: 50), user_path(@article.user) %>
+          <% if @article.categories.any? %>
+            <div class="article__categories mt-2">
+              <%= render @article.categories %>
+            </div>
+          <% end %>
         </header>
         <div class="article__body card-body px-4">
           <div class="text-start article__description card-description">

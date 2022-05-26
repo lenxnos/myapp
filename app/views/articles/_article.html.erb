@@ -5,6 +5,11 @@
         <% if article.user %>
           by <%= link_to article.user.username, user_path(article.user)  %>
         <% end %>
+        <% if article.categories.any? %>
+          <div class="article__categories mt-2">
+            <%= render article.categories %>
+          </div>
+        <% end %>
       </header>
       <div class="article__body card-body px-4">
         <h5 class="article__title card-title">
